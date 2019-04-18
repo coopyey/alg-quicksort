@@ -1,5 +1,5 @@
 # Quicksort Implementation
-C implementation of quicksort. Will sort N randomly generated integers and analyze various charactersitics.
+C++ implementation of quicksort. Will sort N randomly generated integers and analyze various charactersitics.
 
 ### Part A
 1. User inputs value for N.
