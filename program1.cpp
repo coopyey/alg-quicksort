@@ -17,7 +17,6 @@ void swap(int* a, int* b) {
     *b = t;
 }
 
-//Traditional Partition
 int part(std::vector<int> &a, int low, int hi) {
     int pivot = a[hi];
     int i = low-1;
@@ -33,16 +32,42 @@ int part(std::vector<int> &a, int low, int hi) {
     return (i+1);
 }
 
-void quicks(std::vector<int> &a, int low, int hi) {
+//Traditional Quicksort
+void trad_quicks(std::vector<int> &a, int low, int hi) {
     if (low<hi) {
         int part_index = part(a, low, hi);
-        quicks(a, low, part_index-1);
-        quicks(a, part_index+1, hi);
+        trad_quicks(a, low, part_index-1);
+        trad_quicks(a, part_index+1, hi);
     }
 }
 
-void printer(std::vector<int> a) {
+//Random pivot generation
+int rand_part(std::vector<int> &a, int low, int hi) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(low, hi);
+    int rng = dis(gen);
+
+    swap(&a[rng], &a[hi]);
+
+    return part(a, low, hi);
+}
+
+//Random Quicksort
+void rand_quicks(std::vector<int> &a, int low, int hi) {
+    if (low<hi) {
+        int part_index = rand_part(a, low, hi);
+        rand_quicks(a, low, part_index-1);
+        rand_quicks(a, part_index+1, hi);
+    }
+}
+
+void printer(std::vector<int> &a, int in, std::ostream& ofs) {
     for(std::vector<int>::iterator it = a.begin(); it != a.end(); ++it)
-        std::cout << ' ' << *it << '\n';
-    std::cout << '\n';
+        ofs << ' ' << *it << ' ';
+}
+
+void adder(std::vector<int> &a, int x) {
+    for(unsigned int i = 0; i < a.size(); ++i) 
+        a[i] += i*x;
 }

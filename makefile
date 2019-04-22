@@ -19,4 +19,7 @@ clean:
 cleanobj:
 	rm -rf $(OBJECTS)
 
-rebuild: clean $(EXECUTABLE) cleanobj
+rebuild: clean cleanout $(EXECUTABLE) cleanobj
+
+cleanout:
+	rm -rf output.txt
