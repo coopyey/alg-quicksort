@@ -17,7 +17,7 @@ int main() {
     int n = a.size();
     adder(a, mult);
 
-    std::ofstream ofs ("output_10.txt", std::ofstream::app);
+    std::ofstream ofs ("output.txt", std::ofstream::app);
     ofs << "Original:\n";
     printer(a, num_in, ofs);
 
