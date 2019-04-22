@@ -12,3 +12,8 @@ C++ implementation of quicksort. Will sort N randomly generated integers and ana
 2. Repeat 1, but for randomized quicksort.
 3. Repeat 1, but for an array with sorted in increasing order values.
 4. Repeat 3, but using randomized quicksort.
+
+### To Run
+* Simply run `make` to run.
+
+Note: the rebuild function will destroy any output file named `output.txt`, which is the default file output name. Consider changing the name of `output.txt` before running again if you wish to keep results. Alternately, simply remove the `cleanout` command from the makefile - the program is built to append results to the file.
